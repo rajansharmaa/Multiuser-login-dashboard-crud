@@ -7,10 +7,10 @@
 4. MULTI-USER LOGIN SYSTEM
 5. DASHBOARD FOR USER 
 6. DASHBOARD FOR ADMIN
-5. IN USER DASHBOARD 
-  a. My Account
-  b. Change Password
-  c. Update Profile Pic
+5. #IN USER DASHBOARD
+a. My Account
+b. Change Password
+c. Update Profile Pic
 6. IN ADMIN DASHBOARD
 
 # CHANGELOGS 1.0
