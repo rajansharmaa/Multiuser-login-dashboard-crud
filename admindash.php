@@ -106,7 +106,7 @@
 				<?php
         include_once("includes/config.php");
         
-       $sql = "SELECT * FROM `users`  ";
+       $sql = "SELECT * FROM `users` WHERE role='user'";
        $result= mysqli_query($conn,$sql) or die(" query die");
         // echo "<h1>working" . $_SESSION['username']. "<h1>";
         // $row = mysqli_fetch_all($result);
