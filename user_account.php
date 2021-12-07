@@ -56,8 +56,8 @@ if (isset($_POST['SUBMIT'])) {
     $tempname = $_FILES["filename"]["tmp_name"];  
 
         $folder = "profilepic/".$filename;   
-     
-    $conn = mysqli_connect("localhost", "user", "password", "flippappx"); 
+    //  connection to db for profile pic
+    $conn = mysqli_connect("localhost", "root", "", "flippappx"); 
 
         
 
@@ -179,6 +179,7 @@ body {font-family: "Lato", sans-serif;}
 
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'MyAccount')" id="defaultOpen">My Account</button>
+  <button class="tablinks" onclick="openCity(event, 'userblog')">My Blogs</button>
   <button class="tablinks" onclick="openCity(event, 'Password')">Password</button>
   <button class="tablinks" onclick="openCity(event, 'Profile')">Profile picture</button>
   
@@ -188,23 +189,23 @@ body {font-family: "Lato", sans-serif;}
 <div id="MyAccount" class="tabcontent">
 
   <!-- My Account TAB End -->
-  <table>
-  <tr >
-    <!-- <th style="width:25%;">Name</th>
-    <th style="width:40%;">Country</th> -->
-  </tr>
-  <tr>
-    <td class="table.td">Name</td>
-    <td ><?php echo $name;?></td>
-  </tr>
-  <!-- <tr>
-    <td>Last Name</td>
-    <td>S</td>
-  </tr> -->
-  <tr>
-    <td>Username</td>
-    <td><?php echo $username;?></td>
-  </tr>
+          <table>
+          <tr >
+            <!-- <th style="width:25%;">Name</th>
+            <th style="width:40%;">Country</th> -->
+          </tr>
+          <tr>
+            <td class="table.td">Name</td>
+            <td ><?php echo $name;?></td>
+          </tr>
+          <!-- <tr>
+            <td>Last Name</td>
+            <td>S</td>
+          </tr> -->
+          <tr>
+            <td>Username</td>
+            <td><?php echo $username;?></td>
+          </tr>
   <tr>
     <td>Email</td>
     <td><?php echo $email;?></td>
@@ -231,12 +232,53 @@ body {font-family: "Lato", sans-serif;}
   </tr> -->
   <tr>
 		<th scope="row"> profile pic</th>
-				<td> <img src="profilepic/<?php echo $row['profile_pic'];?>" width="150" height="70"></td>
+				<td> <img src="profilepic/<?php echo $row['profile_pic'];?>" width="50" height="50"></td>
   </tr>
   
 </table>
 </div>
 
+<!-- start user blog -->
+
+  <div id="userblog" class="tabcontent">
+    <div class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-stretch">
+     
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+				<tr>
+				  <th scope="col">Title</th>
+				  <th scope="col">Description</th>
+				</tr>
+			  </thead>
+            <!--  show title description -->
+            <?php
+         
+              $query = "SELECT * FROM `blog` WHERE  createdfor='all'" ;
+              $result_tasks = mysqli_query($conn, $query);    
+
+              while($row = mysqli_fetch_assoc($result_tasks)) {?>
+              <tr> 
+                  <td><?php echo $row['title']; ?></td>
+                  <td><?php echo $row['description']; ?></td> 
+              </tr>
+              <?php } ?>
+        <?php
+              $id = $_SESSION['user_id'];
+              $query = "SELECT * FROM `blog` WHERE  createdfor=$id" ;
+              $result_tasks = mysqli_query($conn, $query);    
+
+              $row = mysqli_fetch_assoc($result_tasks) ?>
+          <tr> 
+            <td><?php echo $row['title']; ?></td>
+            <td><?php echo $row['description']; ?></td> 
+          
+          </tr>
+        </table>
+    </div>
+        
+  </div>
+
+<!-- end user blog -->
 
 <!-- My Account TAB End -->
 

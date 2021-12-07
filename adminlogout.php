@@ -3,6 +3,6 @@
 session_start();
 session_destroy();
 
-header("Location: adminpanel_signin.php");
+header("Location: signin.php");
 
 ?>

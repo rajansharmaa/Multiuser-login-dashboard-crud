@@ -111,6 +111,7 @@ if (isset($_POST['submit'])) {
 						
 					</div>
 					<input type="hidden" name="role" value="user">
+					<input type="hidden" name="status" value=0>
 
 					<div class="text-center"><button type="submit" name="submit" value="submit" class="btn btn-success" 	autocomplete="off">Signup</button></div>
 
@@ -161,7 +162,7 @@ if (isset($_POST['submit'])) {
 				return false;
 			 }
 
-			if((Name.length <= 5) || (Name.length >20 )){
+			if((Name.length <= 2) || (Name.length >20 )){
 				alert(' Name lenght must be between 5 and 20!');
 				return false;
 			}

@@ -36,7 +36,7 @@
         $update = "UPDATE users SET name='".$name."', email='".$email."' , username='".$username."', password='".$password."' WHERE id=".$id;
         $result = mysqli_query($conn, $update);
         if($result){
-            header("Location: admindash.php"); 
+            header("Location: admindashboard.php"); 
         }
         else{
 
@@ -61,7 +61,7 @@
 
         <ol>
           <li><a href="index.php">Home</a></li>
-          <li><a href="admindash.php">Admin Dashboard</a></li>
+          <li><a href="admindashboard.php">Admin Dashboard</a></li>
           <li>Dashboard Edit Details</li>
         </ol>
         <h2>Dashboard Edit Details</h2>
@@ -75,107 +75,45 @@
           <h2>Dashboard Edit Details</h2>
          
         </div>
-		<!-- <div class="row"> -->
-		
-          <!-- <div class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-stretch">
-			<form action="#" method="post" role="form" class="flip-form">
-              <div class="row">
-                <div class="form-group col-md-3">
-                  <select class="form-control" id="name" name="" required>
-					<option value="" selected>--Select Sport--</option>
-					<option value="1">Tennis</option>
-					<option value="2">Cricket</option>
-				  </select>
-                </div>
-                <div class="form-group col-md-3">
-                  <select class="form-control" id="name" name="" required>
-					<option value="" selected>--Select Distance Range--</option>
-					<option value="1">1 KM</option>
-					<option value="2">2 KM</option>
-				  </select>
-                </div>
-				<div class="form-group col-md-3">
-                  <select class="form-control" id="name" name="" required>
-					<option value="" selected>--Select Skill Level--</option>
-					<option value="1">Beginners</option>
-					<option value="2">Intermediate</option>
-				  </select>
-                </div>
-				<div class="form-group col-md-3">
-                  <select class="form-control" id="name" name="" required>
-					<option value="" selected>--Select Location--</option>
-					<option value="1">Chandigarh</option>
-					<option value="2">Mohali</option>
-				  </select>
-                </div>
-              </div>
-            </form>
-		  </div> -->
-          <form name="form" method="post" action="#">
-          <!-- <div class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-stretch"> -->
+		<div class="row">
+		  <form name="form" method="post" action="#">
             <table class="table table-bordered">
-			  <thead class="thead-dark">
-				<tr>
-				  <!-- <th scope="col">#</th> -->
-				  <!-- <th scope="col">Name</th>
-				  <th scope="col">Email</th>
-				  <th scope="col">Username</th>
-                   <th scope="col">Password</th>
-                  <th scope="col">Update</th>
-				   -->
-				<!-- </tr>
-			  </thead> -->
-              <!--  -->
-
-              <!-- <tr>
-				          <th><input type="text" name="name" value="<?php echo $name;?>"></th>
-				          <th> <input type="text" name="email" value="<?php echo $email;?>"></th>
-                   <th> <input type="text" name="username" value="<?php echo $username;?>"></th>
-                  <th> <input type="text" name="password" value="<?php echo $password;?>"></th>
-
-                 -->  <!-- update user button
-                  <th><input type="submit" name="update" value="Update"></th> 
-				  
-				  
-				       </tr>  -->
-
-        <!-- Edit users derails  -->
 
 
-<div class="container">
-  <main>
-    <div class="py-5 text-center">
-      <!-- <img class="d-block mx-auto mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-      <!-- <h2>View</h2> -->
-    </div>
 
-    <div class="row g-5">
-      <div class="col-md-5 col-lg-4 order-md-last">
-        <!-- <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-primary">Sign In </span>
-          <span class="badge bg-primary rounded-pill">Sign up</span>
-        </h4> -->
-       
-      </div>
-      <div class="col-md-7 col-lg-8">
-        <h4 class="mb-3">user view</h4>
-        <form class="needs-validation" novalidate>
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <label for="firstName" class="form-label">First name</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" name="name" value="<?php echo $name;?>" required>
-              <div class="invalid-feedback">
-                Valid first name is required.
-              </div>
+      <div class="container">
+        <main>
+          <div class="py-5 text-center">
+            <!-- <img class="d-block mx-auto mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+            <h2>Eiew User Form</h2>
+          </div>
+
+          <div class="row g-5">
+            <div class="col-md-5 col-lg-4 order-md-last">
+              <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Account Name : <?php echo "$name"; ?> </span>
+              </h4>
+            
             </div>
+            <div class="col-md-7 col-lg-8">
+              <h4 class="mb-3">User Account</h4>
+              <form class="needs-validation" novalidate>
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <label for="firstName" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="" name="name" value="<?php echo $name;?>" required>
+                    <div class="invalid-feedback">
+                      Valid first name is required.
+                    </div>
+                  </div>
 
-            <div class="col-sm-6">
+            <!-- <div class="col-sm-6">
               <label for="lastName" class="form-label">Last name</label>
               <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-              <!-- <div class="invalid-feedback">
+              <div class="invalid-feedback">
                 Valid last name is required.
-              </div> -->
-            </div>
+              </div>
+            </div> -->
 
             <!-- <div class="col-12">
               <label for="password" class="form-label">Password <span class="text-muted">(Required)</span></label>
@@ -190,18 +128,18 @@
               <div class="input-group has-validation">
                 <span class="input-group-text">@</span>
                 <input  type="text" class="form-control" id="username" placeholder="Username" name="username" value="<?php echo $username;?>" required>
-              <!-- <div class="invalid-feedback">
+              <div class="invalid-feedback">
                   Your username is required.
-                </div> -->
+                </div>
               </div>
             </div>
 
             <div class="col-12">
               <label for="email" class="form-label">Email <span class="text-muted"></span></label>
               <input type="email" class="form-control" id="email" placeholder="" name="email" value="<?php echo $email;?>">
-              <!-- <div class="invalid-feedback">
+              <div class="invalid-feedback">
                 Please enter a valid email .
-              </div> -->
+              </div>
             </div>
 
             <!-- <div class="col-12">
@@ -212,20 +150,20 @@
               </div>
             </div> -->
 
-            <div class="col-12">
+            <!-- <div class="col-12">
               <label for="address" class="form-label">Address</label>
               <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
               <div class="invalid-feedback">
                 Please enter your address.
               </div>
-            </div>
+            </div> -->
 
-            <div class="col-12">
+            <!-- <div class="col-12">
               <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
               <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-            </div>
+            </div> -->
 
-            <div class="col-md-5">
+            <!-- <div class="col-md-5">
               <label for="country" class="form-label">Country</label>
               <select class="form-select" id="country" required>
                 <option>India</option>
@@ -233,9 +171,9 @@
               <div class="invalid-feedback">
                 Please select a valid country.
               </div>
-            </div>
+            </div> -->
 
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
               <label for="state" class="form-label">State</label>
               <select class="form-select" id="state" required>
                 <option value="">Choose...</option>
@@ -246,24 +184,24 @@
               <div class="invalid-feedback">
                 Please provide a valid state.
               </div>
-            </div>
+            </div> -->
 
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
               <label for="zip" class="form-label">Zip</label>
               <input  type="text" class="form-control" id="zip" placeholder="" required>
               <div class="invalid-feedback">
                 Zip code required.
               </div>
-            </div>
+            </div> -->
           </div>
 
-          <div class="col-md-5">
+          <!-- <div class="col-md-5">
               <label for="country" class="form-label">Phone No.<span class="text-muted"></span></label>
               <input  type="text" class="form-control" id="zip" placeholder="" required>
               <div class="invalid-feedback">
                 Please select a valid number.
               </div>
-            </div>
+            </div> -->
 
           <!-- <hr class="my-4">
           <h4 class="d-flex justify-content-between align-items-center mb-3">

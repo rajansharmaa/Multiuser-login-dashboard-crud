@@ -1,90 +1,72 @@
 <?php include 'includes/header.php'; ?>
-<?php 
+    <?php 
 
-include 'includes/config.php';
+    include 'includes/config.php';
 
-session_start();
+    session_start();
 
-error_reporting(0);
+    error_reporting(0);
 
-if(isset($_SESSION['role'])){
-  session_destroy();
-}
-$message = "";
-$role = "";
-?>
-
-<?php
-if (isset($_SESSION['username'])) {
-    header("Location: signin.php");
-}
-?>
-
-
-
-
-
-
-
-
-
-<?php
-
-if (isset($_POST['submit'])) {
-  // $name = $_POST['name'];
-	$email = $_POST['email'];
-  // $username = $_POST['username'];
-	$password = $_POST['password'];
-
-	$sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-	$result = mysqli_query($conn, $sql);
-
-  // if ($result->num_rows > 0){
-  //   while($row = mysqli_fetch_assoc($result)){
-  //     if($row['role']== "admin"){
-  //       $_SESSION['user_id']== $row['id'];
-  //       $_SESSION['role'] == $role['role'];
-  //       header("Location: admindash.php");
-        
-  //     }
-  //   }
-  // }else{
-
-  //   header("Location: signin.php");
-  // }
-
-
-
-
-
-
-	if ($result->num_rows > 0) {
-		while($row = mysqli_fetch_assoc($result)){
-      if($row['role']== "admin"){
-      $_SESSION['user_id'] = $row['id'];
-		$_SESSION['username'] = $row['username'];
-		header("Location: admindash.php");
-
-    }elseif($row['role']== "user"){
-      $_SESSION['user_id'] = $row['id'];
-      $_SESSION['username'] = $row['username'];
-      header("Location: user_account.php");
+    if(isset($_SESSION['role'])){
+      session_destroy();
     }
-  
-  }
-
-    // Get request id for user account
-    // $_SESSION['user_id'] = $row['id'];
-		// $_SESSION['username'] = $row['username'];
-		// header("Location: user_account.php");
-	} else {
-		echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
-	}
-}
+    $message = "";
+    $role = "";
+    ?>
 
 
 
-?>
+
+
+
+
+       <?php
+
+        if (isset($_POST['submit'])) {
+          $email = $_POST['email'];
+
+          $password = $_POST['password'];
+
+            $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+            $result = mysqli_query($conn, $sql);
+
+
+              if ($result->num_rows > 0) {
+                while($row = mysqli_fetch_assoc($result)){
+                  if($row['role'] == "admin"){
+                  $_SESSION['admin_id'] = $row['id'];
+                  $_SESSION['username'] = $row['username'];
+                      // check status for admin
+                      if($row['status'] == 1){
+                           header("Location: admindashboard.php");
+                      }elseif($row['status'] == 0){
+                           header("Location: status/adminban.php");
+                      }
+
+              }elseif($row['role']== "user"){
+
+                if($row['status'] == 1){
+                    header("Location: user_account.php");
+                }elseif($row['status'] == 0){                   
+                    header("Location: status/userban.php");
+                }
+                  $_SESSION['user_id'] = $row['id'];
+                  $_SESSION['username'] = $row['username'];
+                        // check status for user 
+                      
+                }
+              
+              }
+
+
+              } else {
+                echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
+              }
+            }
+
+
+
+            ?>
 
 
   <main id="main">

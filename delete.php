@@ -12,7 +12,7 @@
       if(!isset($_POST['delete'])) {
           //  echo not working
            echo "<script type='text/javascript'>alert('Deleted successfully');</script>"; 
-            header("Location:admindash.php");
+            header("Location:admindashboard.php");
       }else{
            echo "<script type='text/javascript'>alert('Something Wrong');</script>";
       }

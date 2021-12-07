@@ -71,8 +71,8 @@
       <!-- <a href="index.php" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
-        <!-- <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+         <ul>
+          <!--<li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link   scrollto" href="#portfolio">Portfolio</a></li>
@@ -81,7 +81,9 @@
 
          <?php
           if(isset($_SESSION['username'])) { ?>
-          <li><a class="nav-link scrollto" href="user_account.php">My Account </a></li>
+          <!-- get session username and print to welcome  -->
+         <?php  $name = $_SESSION['username']; ?>
+          <li><a class="nav-link scrollto" href="user_account.php">Welcome :  <?php echo "$name"; ?> </a></li>
           <!-- uncomment to enable admin navbar -->
         <!-- <li class="dropdown"><a href="#"><span>Admin Panel</span> <i class="bi bi-chevron-down"></i></a> -->
          
