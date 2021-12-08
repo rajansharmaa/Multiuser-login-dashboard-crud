@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 08, 2021 at 01:03 PM
+-- Generation Time: Dec 08, 2021 at 03:17 PM
 -- Server version: 8.0.25-0ubuntu0.20.04.1
 -- PHP Version: 8.0.8
 
@@ -84,7 +84,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `profile_pic`, `username`, `password
 (16, 'Adminone', 'admin1@gmail.com', NULL, 'adminone', '123456', 'admin', 1),
 (17, 'thisisnew', 'thisisnew@gmail.com', NULL, 'thisisnew', '123456', 'user', 1),
 (18, 'admin two', 'admintwo@gmail.com', NULL, 'admintwo', '123456', 'admin', 1),
-(19, 'dsxnamee', 'dsx@gmail.com', NULL, 'dsx699', '123456', 'user', 1);
+(19, 'dsxnamee', 'dsx@gmail.com', NULL, 'dsx699', '123456', 'user', 1),
+(88, 'rajan', 'rajankumar1.dx@gmail.com', NULL, 'rajansharma', '123456', 'user', 0);
 
 --
 -- Indexes for dumped tables
@@ -117,7 +118,7 @@ ALTER TABLE `blog`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
